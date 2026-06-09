@@ -2,19 +2,28 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Page:
-    page_frame_nr: int
-    modified: bool = field(default=False)# M bit
-    supervisor: bool = field(default=False)
-    bufforing: bool = field(default=False)
-    write_permision: bool = field(default=False)
-    in_use: bool = field(default=False)#R bit
-    is_present: bool = field(default=False)
+    page_id: tuple[int, int]
+    modified: bool = False  # M bit
+    referenced: bool = False  # R bit
+    is_present: bool = False
+    last_use = 0
+    use_counter = 0
 
-    def enablePresentBit(self):
+
+    def set_r_bit(self):
+        self.referenced = True
+
+    def reset_r_bit(self):
+        self.referenced = False
+
+    def set_m_bit(self):
+        self.modified = True
+
+    def reset_m_bit(self):
+        self.modified = False
+
+    def set_present(self):
         self.is_present = True
-    def disablePresentBit(self):
+
+    def reset_present(self):
         self.is_present = False
-    def enableR_bit(self):
-        self.in_use = True
-    def disableR_bit(self):
-        self.in_use = False

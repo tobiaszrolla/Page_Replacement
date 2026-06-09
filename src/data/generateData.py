@@ -13,7 +13,6 @@ def generate_data(
 
     context = deque()
 
-    # inicjalizacja kontekstu
     for _ in range(context_size):
         context.append(randint(0, n_processes - 1))
 
@@ -21,15 +20,11 @@ def generate_data(
 
     for _ in range(length):
 
-        # context switch (miss)
         if random() < context_switch_probability:
             current_process = randint(0, n_processes - 1)
-
             context.popleft()
             context.append(current_process)
-
         else:
-            # locality hit
             current_process = context[randint(0, len(context) - 1)]
 
         op = "write" if random() < write_probability else "read"
