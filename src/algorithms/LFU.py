@@ -1,10 +1,10 @@
 from src.algorithms.Algorithm import Algorithm
-class LRU(Algorithm):
+class LFU(Algorithm):
     def __init__(self):
         pass
     def select_victim(self, frames):
         victim = frames[0]
         for f in frames:
-            if f.last_use < victim.last_use:
+            if f.use_counter < victim.use_counter:
                 victim = f
         return victim

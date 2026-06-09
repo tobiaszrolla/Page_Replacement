@@ -35,7 +35,6 @@ class Engine:
         if result == "io":
             self.io_operations += 1
 
-            self.index += 1
     def step(self):
         event = self.trace[self.index]
         self.process_event(event)

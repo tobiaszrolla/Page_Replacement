@@ -1,5 +1,5 @@
 from src.engin.Engin import Engine
-from src.algorithms.FIFO import FIFO
+from src.algorithms.LFU import LFU
 
 def test_engine_run():
     trace = [
@@ -17,7 +17,7 @@ def test_engine_run():
     ]
 
     engine = Engine(
-        algorithm=FIFO(),
+        algorithm=LFU(),
         trace=trace,
         max_time=6,
         memory_size=3,
@@ -26,7 +26,7 @@ def test_engine_run():
 
     engine.run()
 
-    assert engine.page_table.frames[0].page_id[0] == 1
-    assert engine.page_table.frames[0].page_id[1] == 2
-    assert engine.page_table.frames[1].page_id[0] == 0
+    assert engine.page_table.frames[0].page_id[0] == 0
+    assert engine.page_table.frames[0].page_id[1] == 1
+    assert engine.page_table.frames[1].page_id[0] == 1
     assert engine.page_table.frames[1].page_id[1] == 2

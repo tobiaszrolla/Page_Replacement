@@ -1,5 +1,5 @@
 from src.engin.Engin import Engine
-from src.algorithms.FIFO import FIFO
+from src.algorithms.MFU import MFU
 
 def test_engine_run():
     trace = [
@@ -17,7 +17,7 @@ def test_engine_run():
     ]
 
     engine = Engine(
-        algorithm=FIFO(),
+        algorithm=MFU(),
         trace=trace,
         max_time=6,
         memory_size=3,

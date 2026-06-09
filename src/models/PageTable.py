@@ -20,6 +20,7 @@ class PageTable:
             if page is not None and page.page_id == page_id:
                 page.set_r_bit()
                 page.last_use = time
+                page.use_counter += 1
                 if op == "write":
                     page.set_m_bit()
                 return "hit"
@@ -27,6 +28,7 @@ class PageTable:
         new_page = Page(page_id=page_id)
         new_page.set_r_bit()
         new_page.last_use = time
+        new_page.use_counter == 0
 
         if op == "write":
             new_page.set_m_bit()
@@ -39,4 +41,5 @@ class PageTable:
 
         victim = algorithm.select_victim(self.frames)
         self.memoryReplace(new_page, victim)
+        print(self.frames)
         return "fault"
