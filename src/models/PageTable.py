@@ -1,15 +1,12 @@
 from src.models.Page import Page
 
 class PageTable:
-    def __init__(self, memory_size: int, table_size: int):
+    def __init__(self, memory_size: int):
         self.memory_size = memory_size
-        self.table_size = table_size
 
         self.pages_in_memory = 0
         self.frames = [None] * memory_size
 
-    def getRange(self):
-        return self.table_size
 
     def memoryReplace(self, newPage: Page, oldPage: Page):
         idx = self.frames.index(oldPage)

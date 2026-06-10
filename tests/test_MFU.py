@@ -21,7 +21,6 @@ def test_engine_run():
         trace=trace,
         max_time=6,
         memory_size=3,
-        table_size=10
     )
 
     engine.run()

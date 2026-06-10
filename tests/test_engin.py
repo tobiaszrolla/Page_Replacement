@@ -16,7 +16,6 @@ def test_engine_run():
         trace=trace,
         max_time=100,
         memory_size=2,
-        table_size=10
     )
 
     engine.run()

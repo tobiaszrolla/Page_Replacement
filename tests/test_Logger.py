@@ -12,8 +12,6 @@ def test_logger_save_to_file():
         algorithm=LFU(),
         trace=trace,
         max_time=700,
-        memory_size=10,
-        table_size=10
     )
 
     engine.run()

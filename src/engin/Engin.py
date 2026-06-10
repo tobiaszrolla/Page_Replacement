@@ -4,10 +4,10 @@ from src.engin.Logger import Logger
 
 
 class Engine:
-    def __init__(self, algorithm: Algorithm, trace, max_time=100, memory_size=100, table_size=1000):
+    def __init__(self, algorithm: Algorithm, trace, max_time=100, memory_size=100):
         self.trace = trace
         self.max_time = max_time
-        self.page_table = PageTable(memory_size, table_size)
+        self.page_table = PageTable(memory_size)
         self.algorithm = algorithm
         self.logger = Logger()
 
