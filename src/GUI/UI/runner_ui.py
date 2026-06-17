@@ -26,9 +26,11 @@ class Ui_runner(object):
         runner.resize(819, 545)
         self.gridLayout = QGridLayout(runner)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.verticalLayout = QVBoxLayout()
+        self.widget = QWidget(runner)
+        self.widget.setObjectName(u"widget")
+        self.verticalLayout = QVBoxLayout(self.widget)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.comboBox = QComboBox(runner)
+        self.comboBox = QComboBox(self.widget)
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -37,29 +39,42 @@ class Ui_runner(object):
 
         self.verticalLayout.addWidget(self.comboBox)
 
-        self.spinBox = QSpinBox(runner)
+        self.spinBox = QSpinBox(self.widget)
         self.spinBox.setObjectName(u"spinBox")
         self.spinBox.setMaximum(1000000)
 
         self.verticalLayout.addWidget(self.spinBox)
 
+        self.spinBox_MemorySize = QSpinBox(self.widget)
+        self.spinBox_MemorySize.setObjectName(u"spinBox_MemorySize")
+        self.spinBox_MemorySize.setMaximum(1000000)
 
-        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
+        self.verticalLayout.addWidget(self.spinBox_MemorySize)
 
-        self.verticalLayout_2 = QVBoxLayout()
+
+        self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
+
+        self.widget_2 = QWidget(runner)
+        self.widget_2.setObjectName(u"widget_2")
+        self.verticalLayout_2 = QVBoxLayout(self.widget_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_2 = QLabel(runner)
+        self.label_2 = QLabel(self.widget_2)
         self.label_2.setObjectName(u"label_2")
 
         self.verticalLayout_2.addWidget(self.label_2)
 
-        self.label = QLabel(runner)
+        self.label = QLabel(self.widget_2)
         self.label.setObjectName(u"label")
 
         self.verticalLayout_2.addWidget(self.label)
 
+        self.label_3 = QLabel(self.widget_2)
+        self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout.addLayout(self.verticalLayout_2, 0, 1, 1, 1)
+        self.verticalLayout_2.addWidget(self.label_3)
+
+
+        self.gridLayout.addWidget(self.widget_2, 0, 1, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -96,6 +111,7 @@ class Ui_runner(object):
 
         self.label_2.setText(QCoreApplication.translate("runner", u"Algorithm", None))
         self.label.setText(QCoreApplication.translate("runner", u"Max Time", None))
+        self.label_3.setText(QCoreApplication.translate("runner", u"Memory Size", None))
         self.PushButton_SelectFile.setText(QCoreApplication.translate("runner", u"Select File", None))
         self.PushButton_Run.setText(QCoreApplication.translate("runner", u"Run", None))
         self.PushButton_Save.setText(QCoreApplication.translate("runner", u"Save", None))

@@ -60,6 +60,7 @@ class Runner(QWidget):
 
         algorithm_choice = self.ui.comboBox.currentText()
         max_time = self.ui.spinBox.value()
+        memory_size = self.ui.spinBox_MemorySize.value()
         algorithms = {
             "FIFO": FIFO,
             "LRU": LRU,
@@ -77,7 +78,7 @@ class Runner(QWidget):
         self.engine = Engine(algorithm,
                              self.trace,
                              max_time,
-                             self.context_size)
+                             memory_size)
         self.engine.run()
         QMessageBox.information(self, "INF", "Finnish running")
 

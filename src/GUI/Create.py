@@ -22,13 +22,17 @@ class Create(QWidget):
         context_size = self.ui.SpinBox_ContextSize.value()
         processes = self.ui.SpinBox_ContextSize_2.value()
         pages = self.ui.SpinBox_PageNumber.value()
+        working_set_size = self.ui.SpinBox_WorkingSetSize.value()
+        pages_reuse = self.ui.SpinBox_PageReuseProbability.value()
 
         self.data = generate_data(context_switch_probability=context_change_prob,
                                 write_probability= 0.2,
                                 n_processes= processes,
                                 n_pages=pages,
                                 length=length,
-                                context_size=context_size)
+                                context_size=context_size,
+                                page_reuse=pages_reuse,
+                                working_set_size=working_set_size)
     
     def save(self):
         context_size = self.ui.SpinBox_ContextSize.value()
